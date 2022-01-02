@@ -13,6 +13,13 @@ export const usersApi = createApi({
     getUsers: builder.query({
       query: () => "users",
     }),
+    addContact: builder.mutation({
+      query: (contact) => ({
+        url: "users",
+        method: "POST",
+        body: contact,
+      }),
+    }),
   }),
 });
-export const { useGetUsersQuery } = usersApi;
+export const { useGetUsersQuery, useAddContactMutation } = usersApi;
